@@ -58,7 +58,7 @@ text2qdrant() {
     createVectorDB "$db_name" 768 "Cosine"
     createEmbeddings "$db_name" "nomic-embed-text-v1.5.f16.gguf" 768 "$filepath"
 
-    checkVectorDB "$db_name"
+    # checkVectorDB "$db_name"
 }
 
 if [ "$#" -lt 1 ]; then
