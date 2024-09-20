@@ -35,17 +35,19 @@ createEmbeddings() {
     local size=$3
     local filepath=$4
 
-    # 复制文件到当前目录
+    # 复制文件到 gaianet_base_dir
     local filename=$(basename "$filepath")
-    cp "$filepath" "$filename"
-
+    cp "$filepath" "$gaianet_base_dir/$filename"
+    # 切换到 gaianet_base_dir
+    cd $gaianet_base_dir
     # 执行命令
-    command="wasmedge --dir .:. --nn-preload default:GGML:AUTO:${model_name} ${gaianet_base_dir}/create_embeddings.wasm default ${DBName} ${size} ${filename}"
+    command="wasmedge --dir .:. --nn-preload default:GGML:AUTO:${model_name} create_embeddings.wasm default ${DBName} ${size} $filename"
     echo $command
     eval $command
 
-    # 删除复制的文件
-    rm "$filename"
+    # 删除 gaianet_base_dir 中的文件
+    rm "$gaianet_base_dir/$filename"
+    cd -
 }
 
 text2qdrant() {
