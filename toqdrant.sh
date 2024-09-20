@@ -1,5 +1,11 @@
 #!/bin/bash
 
+set -e
+
+
+# path to the gaianet base directory
+gaianet_base_dir="$HOME/gaianet"
+
 # 配置 GDRANT 地址和端口
 GDRANT_HOST="${GDRANT_HOST:-localhost}"
 GDRANT_PORT="${GDRANT_PORT:-6333}"
@@ -30,7 +36,7 @@ createEmbeddings() {
     local size=$3
     local filepath=$4
 
-    command="wasmedge --dir .:. --nn-preload default:GGML:AUTO:${model_name} create_embeddings.wasm default ${DBName} ${size} ${filepath}"
+    command="wasmedge --dir .:. --nn-preload default:GGML:AUTO:${model_name} ${gaianet_base_dir}/create_embeddings.wasm default ${DBName} ${size} ${filepath}"
     echo $command
     eval $command
 }

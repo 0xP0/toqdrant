@@ -18,7 +18,7 @@ check_curl() {
 }
 
 # Download files
-check_curl https://github.com/YuanTony/chemistry-assistant/raw/main/rag-embeddings/create_embeddings.wasm create_embeddings.wasm 
+check_curl https://github.com/YuanTony/chemistry-assistant/raw/main/rag-embeddings/create_embeddings.wasm $gaianet_base_dir/create_embeddings.wasm 
 check_curl https://github.com/0xP0/toqdrant/releases/latest/download/toqdrant.sh $gaianet_base_dir/bin/toqdrant
 
 # Make toqdrant executable
