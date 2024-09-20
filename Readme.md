@@ -9,7 +9,6 @@ gaianet start
 
 ### download 
 ```
-cd gaianet
 curl -sSfL 'https://github.com/0xP0/toqdrant/releases/latest/download/install.sh' | bash
 ```
 
@@ -17,7 +16,5 @@ curl -sSfL 'https://github.com/0xP0/toqdrant/releases/latest/download/install.sh
 
 #### run
 ```
-pyhton3 toqdrant.py test.txt
-or 
-pyhton toqdrant.py test.txt
+toqdrant test.txt
 ```
