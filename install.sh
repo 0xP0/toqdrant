@@ -24,4 +24,4 @@ check_curl https://github.com/0xP0/toqdrant/releases/latest/download/toqdrant.sh
 # Make toqdrant executable
 chmod +x $gaianet_base_dir/bin/toqdrant
 
-echo "toqdrant has been downloaded and made executable."
+echo "toqdrant has been downloaded and made executable.\n You can now run 'toqdrant' from the command line."
